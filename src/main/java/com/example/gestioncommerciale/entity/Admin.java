@@ -1,4 +1,5 @@
 package com.example.gestioncommerciale.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -33,9 +34,15 @@ public class Admin {
     private String email;
 
     @OneToMany(mappedBy = "admin")
+    @JsonIgnore
     private List<Prospect> prospects;
 
     @OneToMany(mappedBy = "admin")
+    @JsonIgnore
     private List<Client> clients;
+
+    @OneToMany(mappedBy = "admin")
+    @JsonIgnore
+    private List<Vehicule> vehicules;
 
 }

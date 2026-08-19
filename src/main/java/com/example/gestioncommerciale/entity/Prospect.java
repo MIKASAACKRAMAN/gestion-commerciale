@@ -1,5 +1,6 @@
 package com.example.gestioncommerciale.entity;
 
+import com.example.gestioncommerciale.enums.ProspectStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,7 +33,9 @@ public class Prospect {
 
     private String adresse;
 
-    private String statut;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ProspectStatus statut;
 
     private LocalDate dateCreation;
 

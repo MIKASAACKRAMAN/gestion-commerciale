@@ -1,5 +1,6 @@
 package com.example.gestioncommerciale.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,7 +37,8 @@ public class Client {
     @JoinColumn(name = "admin_id")
     private Admin admin;
 
-  //  @OneToMany(mappedBy = "client")
-   // private List<Devis> devis;
+   @OneToMany(mappedBy = "client")
+   @JsonIgnore
+   private List<Devis> devis;
 
 }
