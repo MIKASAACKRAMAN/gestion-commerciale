@@ -1,6 +1,7 @@
 package com.example.gestioncommerciale.entity;
 
 import com.example.gestioncommerciale.enums.DevisStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -43,5 +44,9 @@ public class Devis {
     @ManyToOne
     @JoinColumn(name = "admin_id", nullable = false)
     private Admin admin;
+
+    @OneToOne(mappedBy = "devis")
+    @JsonIgnore
+    private Vente vente;
 
 }
